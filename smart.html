@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Digital Notebook Launch</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- EmailJS v4 -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #0b0f2f, #1a2a6c);
+        color: white;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+        text-align: center;
+        animation: fadeUp 1s ease forwards;
+        opacity: 0;
+    }
+
+    @keyframes fadeUp {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hero-img {
+        width: 100%;
+        max-width: 420px;
+        margin: 30px auto;
+        animation: float 3s infinite ease-in-out;
+        display: block;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-top: 20px;
+    }
+
+    p {
+        margin-top: 10px;
+        opacity: 0.9;
+    }
+
+    .notify-box {
+        background: rgba(255,255,255,0.1);
+        padding: 20px;
+        border-radius: 15px;
+        max-width: 450px;
+        margin: 25px auto;
+        backdrop-filter: blur(10px);
+        animation: fadeUp 1.4s ease forwards;
+        opacity: 0;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 12px;
+        padding: 14px;
+        border: none;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: white;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    #msg {
+        margin-top: 12px;
+        font-size: 14px;
+        opacity: 0.9;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+        h1 { font-size: 1.8rem; }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <img src="https://i.postimg.cc/jD3SrsFf/1763392438793.png" class="hero-img">
+
+    <h1>AI Digital Notebook</h1>
+    <p>Your smart notebook powered by AI. Write better, organise faster, think smarter.</p>
+
+    <div class="notify-box">
+        <h3>Get Notified at Launch</h3>
+        <form id="notifyForm">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit">Notify Me</button>
+            <div id="msg"></div>
+        </form>
+    </div>
+
+</div>
+
+<script>
+emailjs.init({
+    publicKey: "XOzyH8PGjNtlpCBoD"  
+});
+
+document.getElementById("notifyForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+
+    emailjs.send("service_w2cf4wy", "template_1llnnhj", {
+        user_email: email
+    })
+    .then(() => {
+        document.getElementById("msg").innerHTML = "✅ Thank you! We will notify you soon.";
+        document.getElementById("email").value = "";
+    })
+    .catch((error) => {
+        document.getElementById("msg").innerHTML = "❌ Failed to send email.";
+        console.log(error);
+    });
+});
+</script>
+
+</body>
+</html>
