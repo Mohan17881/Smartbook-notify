@@ -7,121 +7,48 @@
 
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="index.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-    }
-
-    body {
-        background: linear-gradient(135deg, #0b0f2f, #1a2a6c);
-        color: white;
-        overflow-x: hidden;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 1100px;
-        margin: auto;
-        padding: 20px;
-        text-align: center;
-        animation: fadeUp 1s ease forwards;
-        opacity: 0;
-    }
-
-    @keyframes fadeUp {
-        from { transform: translateY(30px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
-
-    .hero-img {
-        width: 100%;
-        max-width: 420px;
-        margin: 30px auto;
-        animation: float 3s infinite ease-in-out;
-        display: block;
-    }
-
-    @keyframes float {
-        0% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0); }
-    }
-
-    h1 {
-        font-size: 2.2rem;
-        margin-top: 20px;
-    }
-
-    p {
-        margin-top: 10px;
-        opacity: 0.9;
-    }
-
-    .notify-box {
-        background: rgba(255,255,255,0.1);
-        padding: 20px;
-        border-radius: 15px;
-        max-width: 450px;
-        margin: 25px auto;
-        backdrop-filter: blur(10px);
-        animation: fadeUp 1.4s ease forwards;
-        opacity: 0;
-    }
-
-    input {
-        width: 100%;
-        padding: 14px;
-        margin-top: 10px;
-        border: none;
-        border-radius: 10px;
-        outline: none;
-        font-size: 15px;
-    }
-
-    button {
-        width: 100%;
-        margin-top: 12px;
-        padding: 14px;
-        border: none;
-        background: linear-gradient(135deg, #6a11cb, #2575fc);
-        color: white;
-        border-radius: 10px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
-
-    button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    #msg {
-        margin-top: 12px;
-        font-size: 14px;
-        opacity: 0.9;
-    }
-
-    
-    @media (max-width: 600px) {
-        h1 { font-size: 1.8rem; }
-    }
-</style>
 </head>
 <body>
 
-<div class="container">
-    <img src="https://i.postimg.cc/jD3SrsFf/1763392438793.png" class="hero-img">
+<!--Nav Section-->    
+<nav>
+    <div class="logo">
+        <h2>SmartBook</h2>
+        
+    </div>
+    <div class="nav-links">
+        <a href="#">Product</a>
+        <a href="#">Features</a>
+        <a href="#">Experience</a>
+        <a href="#">For Teams</a>
+    </div>
+    <button id="notify-btn">Notify-me</button>
+</nav>
+<!--Nav Section End-->
 
+
+<!--Hero Section-->
+<section class="hero-section">
+    <div class="left">
+        <h2>Smart Book</h2>
+        <p>Ai Digital Notebook</p>
+    </div>
+    <div class="right">
+        <img src="imgs/right.jpeg" alt="" id="hero-imgs">
+    </div>
+</section>
+
+
+
+<div class="container">
     <h1>AI Digital Notebook</h1>
+    <img src="imgs/right.jpeg" class="hero-img">
+
+    
     <p>Your smart notebook powered by AI. Write better, organise faster, think smarter.</p>
 
     <div class="notify-box">
@@ -129,40 +56,13 @@
         <form id="notifyForm">
             <input type="text" id="name" placeholder="Enter your name">
             <input type="email" id="email" placeholder="Enter your email" required>
-            <button type="submit">Notify Me</button>
+            <button type="submit" id="submit-btn">Notify Me</button>
             <div id="msg"></div>
         </form>
     </div>
 
 </div>
-
-<script>
-emailjs.init({
-    publicKey: "9581i2CjsVS8UMlpO"  
-});
-
-document.getElementById("notifyForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    alert(" Your Details Submitted Successfully")
-    const email = document.getElementById("email").value;
-    
-    const name = document.getElementById("name").value;
-
-    emailjs.send("service_36bza89", "template_xajtecb", {
-        user_email: email,
-        user_name: name
-    })
-    .then(() => {
-        document.getElementById("msg").innerHTML = "✅ Thank you! We will notify you soon.";
-        document.getElementById("email").value = "";
-        document.getElementById("name").value = "";
-    })
-    .catch((error) => {
-        document.getElementById("msg").innerHTML = "❌ Failed to send email.";
-        console.log(error);
-    });
-});
-</script>
+<script src="index.js"></script>
 
 </body>
 </html>
