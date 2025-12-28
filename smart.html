@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Digital Notebook Launch</title>
 
-<!-- Google Font -->
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<!-- EmailJS v4 -->
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <style>
@@ -110,7 +110,7 @@
         opacity: 0.9;
     }
 
-    /* Mobile responsive */
+    
     @media (max-width: 600px) {
         h1 { font-size: 1.8rem; }
     }
@@ -127,6 +127,7 @@
     <div class="notify-box">
         <h3>Get Notified at Launch</h3>
         <form id="notifyForm">
+            <input type="text" id="name" placeholder="Enter your name">
             <input type="email" id="email" placeholder="Enter your email" required>
             <button type="submit">Notify Me</button>
             <div id="msg"></div>
@@ -137,19 +138,24 @@
 
 <script>
 emailjs.init({
-    publicKey: "XOzyH8PGjNtlpCBoD"  
+    publicKey: "9581i2CjsVS8UMlpO"  
 });
 
 document.getElementById("notifyForm").addEventListener("submit", function(e) {
     e.preventDefault();
+    alert(" Your Details Submitted Successfully")
     const email = document.getElementById("email").value;
+    
+    const name = document.getElementById("name").value;
 
-    emailjs.send("service_w2cf4wy", "template_1llnnhj", {
-        user_email: email
+    emailjs.send("service_36bza89", "template_xajtecb", {
+        user_email: email,
+        user_name: name
     })
     .then(() => {
         document.getElementById("msg").innerHTML = "✅ Thank you! We will notify you soon.";
         document.getElementById("email").value = "";
+        document.getElementById("name").value = "";
     })
     .catch((error) => {
         document.getElementById("msg").innerHTML = "❌ Failed to send email.";
