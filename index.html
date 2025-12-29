@@ -21,32 +21,33 @@
         
     </div>
     <div class="nav-links">
-        <a href="#" class="a">Product</a>
-        <a href="#" class="a">Features</a>
-        <a href="#" class="a">Experience</a>
+        <a href="#hero" class="a">Product</a>
+        <a href="#features" class="a">Features</a>
+        <a href="#experience" class="a">Experience</a>
         <a href="#" class="a">For Teams</a>
     </div>
-    <button id="notify-btn">Notify-me</button>
+    <a href="#notify"><button id="notify-btn">Notify-me</button></a>
 </nav>
 <!--Nav Section End-->
 
 
 <!--Hero Section-->
-<section class="hero-section">
+<section class="hero-section" id="hero">
     <div class="left">
         <h1>Smart Book</h1>
         <h2>The feature of<br> Through note-taking</h2>
         <p>Capture ideas🚀 naturally, Stay Organized effortlessly, and Build a clear way to think - every day.</p>
-        <a href="#" class="hero-nbtn">Notify-me</a>
+        <a href="#notify" class="hero-nbtn">Notify-me</a>
     </div>
     <div class="right">
-        <img src="imgs/right1.png" alt="" id="hero-imgs">
+      <a href='https://postimg.cc/bZLmf3y8' target='_blank'><img src='https://i.postimg.cc/bZLmf3y8/right1.png' border='0' alt='right1'></a> 
+      
     </div>
 </section>
 <!--Hero Section End-->
 
 <!--Feature section-->
-<section class="features">
+<section class="features" id="features">
   <div class="features-header">
     <h2>Designed for focus and clarity</h2>
     <p>
@@ -90,33 +91,33 @@
   </div>
 </section>
 <!--Feature section End-->
-<section class="experience reveal">
+<section class="experience reveal" id="experience">
   <h2>Designed for everyday moments</h2>
 
   <div class="experience-track">
     <div class="experience-card">
-      <img src="imgs/write.jpeg">
+      <a href='https://postimg.cc/XZpkSW1H' target='_blank'><img src='https://i.postimg.cc/XZpkSW1H/write.jpg' border='0' alt='write'></a>
       <div class="card-text">Focus & Clarity</div>
     </div>
 
     <div class="experience-card">
-      <img src="imgs/left.jpeg">
+      <a href='https://postimg.cc/q6X8Xvgx' target='_blank'><img src='https://i.postimg.cc/q6X8Xvgx/left.jpg' border='0' alt='left'></a>
       <div class="card-text">Deep Thinking</div>
     </div>
 
     <div class="experience-card">
-      <img src="imgs/vertical.jpeg">
+      <a href='https://postimg.cc/ZWqrpZm0' target='_blank'><img src='https://i.postimg.cc/ZWqrpZm0/vertical.jpg' border='0' alt='vertical'></a>
       <div class="card-text">Work Without Distraction</div>
     </div>
 
     <!-- DUPLICATE FOR INFINITE LOOP -->
     <div class="experience-card">
-      <img src="imgs/img4.jpg">
+      <a href='https://postimg.cc/2LmW6NTq' target='_blank'><img src='https://i.postimg.cc/2LmW6NTq/img4.jpg' border='0' alt='img4'></a>
       <div class="card-text">Built for deep thinking</div>
     </div>
 
     <div class="experience-card">
-      <img src="imgs/img5.jpg">
+      <a href='https://postimg.cc/XX01FZzY' target='_blank'><img src='https://i.postimg.cc/XX01FZzY/img5.jpg' border='0' alt='img5'></a>
       <div class="card-text">Kids & Learning</div>
     </div>
   </div>
@@ -202,6 +203,15 @@
     </div>
 
 </div>-->
+<!-- Success Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" id="closeModal">✕</button>
+    <h3>You’re in 🎉</h3>
+    <p>Thanks for showing interest.<br>We’ll notify you soon.</p>
+  </div>
+</div>
+
 <script src="index.js"></script>
 
 </body>

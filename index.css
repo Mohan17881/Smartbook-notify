@@ -6,11 +6,14 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
+       
     }
 
     body {
         background: linear-gradient(135deg, #0b0f2f, #1a2a6c);
         color: white;
+        max-width: 100%;
+        overflow-x: hidden;
         
     }
     /*For NAV_BAR */
@@ -110,18 +113,22 @@
 
     /*Hero Section*/
     .hero-section{
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        min-height: 5vh;
+        height: auto;
+        min-height: 100vh;
         padding: 120px 8% 80px;
         background: linear-gradient(to bottom, #eef2f5, #1c1b44);
         background-color: rgb(203, 194, 194);
     }
     
     #hero-imgs {
-        width: 520px;
-        max-width: 100%;
+        max-width: 520px;
+        width: 100%;
         animation: float 5s ease-in-out infinite;
     }
     @keyframes float {
@@ -131,7 +138,8 @@
     }
         
     .left{
-        min-width: 560px;
+        max-width: 560px;
+        width: 100%;
     }
     .left > h1{
         font-family: 'Playfair Display', serif;
@@ -149,6 +157,7 @@
         color: #ddd7ee;
         max-width: 460px;
         line-height: 1.6;
+        position: relative;
     }
     .hero-nbtn {
         display: inline-block;
@@ -172,15 +181,23 @@
             flex-direction: column;
             text-align: center;
             padding-top: 140px;
+            padding-left: 6%;
+            padding-right: 6%;
+            
 
+        }
+        .left{
+          max-width: 100%;
         }
         .left > h1{
             font-size: 2.6rem;
 
         }
         .left > p{
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 0.9rem;
+            max-width: 100%;
+            padding: 0 10px;
+            line-height: 1.6;
             
 
         }
@@ -556,7 +573,7 @@
 
 
 
-/*old styles*/
+/*old styles
     .container {
         width: 100%;
         max-width: 1100px;
@@ -646,3 +663,70 @@
     @media (max-width: 600px) {
         h1 { font-size: 1.8rem; }
     }
+        */
+/* MODAL OVERLAY */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+/* ACTIVE STATE */
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* MODAL BOX */
+.modal-box {
+  background: #ffffff;
+  padding: 36px 32px;
+  border-radius: 22px;
+  max-width: 340px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  transform: translateY(30px);
+  transition: transform 0.3s ease;
+}
+
+/* ANIMATE IN */
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+
+/* CLOSE BUTTON */
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #555;
+}
+
+/* TEXT */
+.modal-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.modal-box p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
