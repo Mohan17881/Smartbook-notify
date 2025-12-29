@@ -126,17 +126,18 @@
         background-color: rgb(203, 194, 194);
     }
     .right{
-      border: 1px solid red;
+      
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: auto;
     }
     
     .right img{
         height: auto;
         display: block;
-        border: 1px solid red;
+        
         max-width: 520px;
         width: 100%;
         animation: float 5s ease-in-out infinite;
