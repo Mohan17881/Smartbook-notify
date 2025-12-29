@@ -125,8 +125,18 @@
         background: linear-gradient(to bottom, #eef2f5, #1c1b44);
         background-color: rgb(203, 194, 194);
     }
+    .right{
+      border: 1px solid red;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     
-    #hero-imgs {
+    .right img{
+        height: auto;
+        display: block;
+        border: 1px solid red;
         max-width: 520px;
         width: 100%;
         animation: float 5s ease-in-out infinite;
@@ -203,7 +213,12 @@
         }
         .right {
             margin-top: 50px;
+            width: 100%;
 
+        }
+        .right img {
+            max-width: 420px;
+            margin-top: 40px;
         }
 
     }
